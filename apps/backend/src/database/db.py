@@ -1,6 +1,6 @@
 from fastapi import Request
-import prisma
+from prisma import Prisma
 
 
-def get_prisma(request: Request) -> prisma:
+def get_prisma(request: Request) -> Prisma:
     return request.app.state.prisma
