@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-py"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now()) @db.Timestamptz()
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model HttpLog {
+  id          String       @id @default(uuid())
+  timestamp   DateTime
+  srcIp       String
+  host        String
+  uri         String
+  method      String
+  status      Int
+  userAgent   String
+  createdAt   DateTime     @default(now()) @db.Timestamptz()
+  updatedAt   DateTime     @default(now()) @updatedAt
+
+  logAnalysis LogAnalysis?
+}
+
+model LogAnalysis {
+  id              String  @id @default(uuid())
+  logId           String  @unique
+  attackType      String
+  confidenceScore Float
+  httpLog         HttpLog @relation(fields: [logId], references: [id], onDelete: Cascade)
+}
