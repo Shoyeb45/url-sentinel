@@ -15,7 +15,7 @@ class LogEntry(BaseModel):
     userAgent: str
     
 class AnalysisSchema(BaseModel):
-    id: str
+    id: Optional[str]
     logId: str
     attackType: str
     confidenceScore: float
@@ -40,3 +40,14 @@ class AllHttpLogs(BaseResponse):
 class AnalyzeRequest(BaseModel):
     logIds: List[str]
     
+    
+class LogResponse(BaseModel):
+    processed: int
+    unprocessed: int
+    total: int
+    
+class LogStatsResponse(BaseResponse):
+    data: LogResponse
+    
+class AnalysisData(BaseResponse):
+    data: List[AnalysisSchema]

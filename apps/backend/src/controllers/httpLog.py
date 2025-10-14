@@ -19,5 +19,8 @@ class HttpLogController:
     async def create_single_http_log(self, http_log: LogEntry):
         return await self.http_log_service.create_single_log(http_log)
     
+    async def get_log_stats(self):
+        return await self.http_log_service.get_log_stats()
+    
 def get_http_log_controller(http_log_service: HttpLogService = Depends(get_http_log_service)):
     return HttpLogController(http_log_service)

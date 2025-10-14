@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 from fastapi import Depends, HTTPException, UploadFile, status
 import logging
 from database.db import get_prisma
-from schema.httpLogsModels import AllHttpLogs, AnalysisSchema, AnalyzeRequest, HttpLogSchema, LogEntry
+from schema.httpLogsModels import AllHttpLogs, AnalysisData, AnalysisSchema, AnalyzeRequest, HttpLogSchema, LogEntry, LogResponse, LogStatsResponse
 from repositories.httpLog import HttpLogRepository, get_http_log_repository
 from schema.response import BaseResponse
 from utils.detector import check_attack
@@ -35,7 +35,13 @@ class HttpLogService:
 
         await self.http_log_repository.create_multiple_analyses(analysis_data)
         
-        return BaseResponse(message=f"Completed analysis of {len(analysis_data)} given data.", success=True)
+        created_data = await self.http_log_repository.get_many_analysis_by_logIds(data.logIds)
+        
+        return AnalysisData(
+            message=f"Completed analysis of {len(analysis_data)} given data.", 
+            success=True, 
+            data=[AnalysisSchema.model_validate(analysed_data) for analysed_data in created_data]
+        )
         
     async def upload_and_parse(self, file: UploadFile) -> AllHttpLogs:
         if not file.filename.endswith('.csv'):
@@ -97,6 +103,14 @@ class HttpLogService:
         created_data = await self.http_log_repository.create(http_log)
         return BaseResponse(success=True, message="Successfully created new http log.")
     
+        
+    async def get_log_stats(self):
+        data = await self.http_log_repository.get_log_counts()
+        return LogStatsResponse(
+            success=True,
+            message="Successfully got counts.",
+            data=LogResponse(processed=data["processed"], unprocessed=data["unprocessed"], total=data["total"])
+        )
         
 def get_http_log_service(http_log_repository: HttpLogRepository = Depends(get_http_log_repository)):
     return HttpLogService(http_log_repository)

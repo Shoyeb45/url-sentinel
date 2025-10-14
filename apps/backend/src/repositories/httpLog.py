@@ -27,7 +27,7 @@ class HttpLogRepository:
         return await self.prisma.httplog.find_many(
             where={
                 "id": {"in": logIds},
-                "logAnalysis": None   # No related logAnalysis records
+                "logAnalysis": None 
             }
         )
     
@@ -41,7 +41,7 @@ class HttpLogRepository:
     async def create(self, data: LogEntry):
         return await self.prisma.httplog.create(data=data.model_dump())
     
-    async def create_multiple_analyses(self, analyses_data: List[dict]):
+    async def create_multiple_analyses(self, data: List[dict]):
         return await self.prisma.loganalysis.create_many(
             data=[
                 {
@@ -49,10 +49,28 @@ class HttpLogRepository:
                     "attackType": analysis["attackType"],
                     "confidenceScore": analysis["confidenceScore"]
                 }
-                for analysis in analyses_data
+                for analysis in data
             ]
         )
+        
+    async def get_log_counts(self):
+        unprocessed_count = await self.prisma.httplog.count(
+            where={"logAnalysis": None}
+        )
+        processed_count = await self.prisma.httplog.count(
+            where={"logAnalysis": {"is_not": None}}
+        )
+        return {
+            "unprocessed": unprocessed_count,
+            "processed": processed_count,
+            "total": unprocessed_count + processed_count
+        }
 
+    async def get_many_analysis_by_logIds(self, logIds: List[str]):
+        data = await self.prisma.loganalysis.find_many(where={
+            "logId": { "in" : logIds}
+        })
+        return data
 
 def get_http_log_repository(prisma: Prisma = Depends(get_prisma)):
     return HttpLogRepository(prisma)
