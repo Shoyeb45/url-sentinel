@@ -51,3 +51,13 @@ class LogStatsResponse(BaseResponse):
     
 class AnalysisData(BaseResponse):
     data: List[AnalysisSchema]
+    
+class AnalysisStats(BaseModel):
+    sqli: int 
+    xss: int 
+    directoryTraversal: int 
+    webShellUpload: int 
+    miscellaneous: int
+    
+class AnalysisStatsResponse(BaseResponse):
+    data: AnalysisStats

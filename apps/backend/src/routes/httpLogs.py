@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, File, UploadFile
 
 from controllers.httpLog import HttpLogController, get_http_log_controller
-from schema.httpLogsModels import AllHttpLogs, AnalysisData, AnalyzeRequest, LogEntry, LogStatsResponse
+from schema.httpLogsModels import AllHttpLogs, AnalysisData, AnalysisStatsResponse, AnalyzeRequest, LogEntry, LogStatsResponse
 from schema.response import BaseResponse
 
 router = APIRouter(prefix="/http-log", tags=["HTTP Log related API"])
@@ -21,6 +21,10 @@ async def get_logs(http_log_controller: HttpLogController = Depends(get_http_log
 @router.post("/analyse", description="Send array of ids of the logs to analyze the http requests.", response_model=AnalysisData)
 async def analyse_http_logs(request: AnalyzeRequest, http_log_controller: HttpLogController = Depends(get_http_log_controller)):
     return await http_log_controller.analyze(request)
+
+@router.get("/analyze-stats", description="Get analysis stats, attack types identified.", response_model=AnalysisStatsResponse)
+async def get_analysis_stats(http_log_controller: HttpLogController = Depends(get_http_log_controller)):
+    return await http_log_controller.get_analysis_stats()
 
 @router.get("/log-stats", description="Get how many of the logs have been processed.", response_model=LogStatsResponse)
 async def get_log_stats(http_log_controller: HttpLogController = Depends(get_http_log_controller)):

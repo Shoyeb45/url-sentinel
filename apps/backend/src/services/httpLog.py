@@ -4,7 +4,7 @@ from typing import Any, Dict, List
 from fastapi import Depends, HTTPException, UploadFile, status
 import logging
 from database.db import get_prisma
-from schema.httpLogsModels import AllHttpLogs, AnalysisData, AnalysisSchema, AnalyzeRequest, HttpLogSchema, LogEntry, LogResponse, LogStatsResponse
+from schema.httpLogsModels import AllHttpLogs, AnalysisData, AnalysisSchema, AnalysisStatsResponse, AnalyzeRequest, HttpLogSchema, LogEntry, LogResponse, LogStatsResponse
 from repositories.httpLog import HttpLogRepository, get_http_log_repository
 from schema.response import BaseResponse
 from utils.detector import check_attack
@@ -110,6 +110,14 @@ class HttpLogService:
             success=True,
             message="Successfully got counts.",
             data=LogResponse(processed=data["processed"], unprocessed=data["unprocessed"], total=data["total"])
+        )
+        
+    async def get_analysis_stats(self):
+        data = await self.http_log_repository.get_analysis_counts()
+        return AnalysisStatsResponse(
+            success=True,
+            message="Successfully computed analysis stats.",
+            data=data
         )
         
 def get_http_log_service(http_log_repository: HttpLogRepository = Depends(get_http_log_repository)):

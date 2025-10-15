@@ -22,5 +22,8 @@ class HttpLogController:
     async def get_log_stats(self):
         return await self.http_log_service.get_log_stats()
     
+    async def get_analysis_stats(self):
+        return await self.http_log_service.get_analysis_stats()
+    
 def get_http_log_controller(http_log_service: HttpLogService = Depends(get_http_log_service)):
     return HttpLogController(http_log_service)

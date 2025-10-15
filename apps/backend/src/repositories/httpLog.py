@@ -4,7 +4,7 @@ from fastapi import Depends
 from prisma import Prisma
 from prisma.models import HttpLog
 from database.db import get_prisma
-from schema.httpLogsModels import LogEntry
+from schema.httpLogsModels import AnalysisStats, LogEntry
 
 class HttpLogRepository:
     def __init__(self, prisma: Prisma):
@@ -71,6 +71,31 @@ class HttpLogRepository:
             "logId": { "in" : logIds}
         })
         return data
+    
+    async def get_analysis_counts(self):
+        results = await self.prisma.loganalysis.group_by(
+            by=['attackType'],
+            count={
+                '_all': True
+            }
+        )
+        
+        # Transform the results into a more usable format
+        counts = {result['attackType']: result['_count']['_all'] for result in results}
+        
+        # Ensure all attack types are present with 0 if no records exist
+        attack_types = ['SQLi', 'XSS', 'Directory Traversal', 'Web-shell Upload', 'Miscellaneous']
+        for attack_type in attack_types:
+            if attack_type not in counts:
+                counts[attack_type] = 0
+        
+        return AnalysisStats(
+            sqli=counts["SQLi"],
+            xss=counts["XSS"],
+            directoryTraversal=counts["Directory Traversal"],
+            webShellUpload=counts["Web-shell Upload"],
+            miscellaneous=counts["Miscellaneous"]
+        )
 
 def get_http_log_repository(prisma: Prisma = Depends(get_prisma)):
     return HttpLogRepository(prisma)
