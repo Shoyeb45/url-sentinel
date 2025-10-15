@@ -48,7 +48,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-slate-950/80">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -63,7 +63,7 @@ const Features = () => {
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="p-6 bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 group hover:shadow-lg"
+              className="p-6 bg-card/30 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300 group hover:shadow-lg"
             >
               <div className={`inline-flex p-3 rounded-lg ${feature.bgColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
                 <feature.icon className={`w-6 h-6 ${feature.color}`} />

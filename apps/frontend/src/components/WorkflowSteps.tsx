@@ -5,7 +5,7 @@ const steps = [
   {
     number: "01",
     title: "Log Ingestion",
-    description: "Upload your HTTP log files for instant processing and attack detection",
+    description: "Upload your HTTP log files for processing and attack detection",
     icon: Upload,
     color: "text-primary",
   },
@@ -34,7 +34,7 @@ const steps = [
 
 const WorkflowSteps = () => {
   return (
-    <section className="py-20 bg-gradient-cyber">
+    <section className="py-20 bg-slate-950/80">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -53,7 +53,7 @@ const WorkflowSteps = () => {
                 <div className="hidden lg:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-primary/50 to-transparent -translate-x-1/2 z-0" />
               )}
               
-              <Card className="relative z-10 p-6 bg-card/70 backdrop-blur-md border border-border hover:border-primary/50 transition-all duration-300 group">
+              <Card className="relative z-10 p-6 bg-card/30 backdrop-blur-md border border-border hover:border-primary/50 transition-all duration-300 group">
                 <div className="flex flex-col items-center text-center">
                   <div className={`mb-4 text-6xl font-bold ${step.color} opacity-20`}>
                     {step.number}

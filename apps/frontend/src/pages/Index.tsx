@@ -42,17 +42,17 @@ const Index = () => {
   const navigate = useNavigate();
   return (
     <div className="min-h-screen">
-      <div className="flex justify-between items-center bg-card border border-border rounded-lg p-4">
-        <div className="flex items-center gap-2">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/20">
+      <div className="flex justify-between items-center bg-slate-950 border-b px-10 py-4">
+        <div className="flex items-center gap-2 ">
+          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-slate-800">
             <Shield className="h-6 w-6 text-primary" />
           </div>
           <div>
             <h1 className="text-lg font-bold text-foreground">
-              Cyber Attack Analyzer
+              Cyber Shield
             </h1>
             <p className="text-xs text-muted-foreground">
-              Security Log Analysis
+              Smart Attack Detection
             </p>
           </div>
         </div>
@@ -68,7 +68,7 @@ const Index = () => {
       <StatsOverview />
 
       {/* Dashboard Charts Section */}
-      <section className="container px-6 py-16">
+      <section className=" px-20 py-16 bg-slate-950/80">
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Real-Time Threat Intelligence
@@ -81,7 +81,7 @@ const Index = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Threat Activity Timeline */}
-          <Card className="bg-card/50 backdrop-blur border-white/10">
+          <Card className="bg-card/30 backdrop-blur border-white/10">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-foreground">
                 <TrendingUp className="h-5 w-5 text-primary" />
@@ -131,7 +131,7 @@ const Index = () => {
           </Card>
 
           {/* Attack Type Distribution */}
-          <Card className="bg-card/50 backdrop-blur border-white/10">
+          <Card className="bg-slate-950/80">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-foreground">
                 <Shield className="h-5 w-5 text-primary" />

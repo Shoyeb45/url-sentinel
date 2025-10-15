@@ -38,7 +38,7 @@ const Login = () => {
     <div className="min-h-screen bg-background flex items-center justify-center p-6">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background"></div>
       
-      <Card className="w-full max-w-md bg-card/50 backdrop-blur border-white/10 relative z-10">
+      <Card className="w-full max-w-md bg-card/30 backdrop-blur border-white/10 relative z-10">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/20">

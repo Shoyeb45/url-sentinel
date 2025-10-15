@@ -42,8 +42,8 @@ const stats = [
 
 const StatsOverview = () => {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-slate-950/80">
+      <div className="container mx-auto px-20">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Real-Time Security Overview
@@ -57,7 +57,7 @@ const StatsOverview = () => {
           {stats.map((stat, index) => (
             <Card
               key={index}
-              className={`p-6 border-2 ${stat.borderColor} bg-card/50 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-lg`}
+              className={`p-6 border-2 ${stat.borderColor} bg-card/30 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-lg`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className={`p-3 rounded-lg ${stat.bgColor}`}>

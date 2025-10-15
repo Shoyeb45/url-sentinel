@@ -34,7 +34,7 @@ const attackTypes = [
 
 const AttackTypes = () => {
   return (
-    <section className="py-20 bg-gradient-cyber">
+    <section className="py-20 bg-slate-950/80">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -49,7 +49,7 @@ const AttackTypes = () => {
           {attackTypes.map((attack, index) => (
             <Card
               key={index}
-              className="p-6 bg-card/70 backdrop-blur-md border border-border hover:border-primary/50 transition-all duration-300 group"
+              className="p-6 bg-card/30 backdrop-blur-md border border-border hover:border-primary/50 transition-all duration-300 group"
             >
               <div className="flex flex-col items-center text-center">
                 <div className="p-4 bg-muted/50 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">
@@ -63,20 +63,6 @@ const AttackTypes = () => {
               </div>
             </Card>
           ))}
-        </div>
-
-        {/* Distribution Chart Placeholder */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <Card className="p-8 bg-card/70 backdrop-blur-md border border-border">
-            <h3 className="text-xl font-semibold mb-6 text-center text-foreground">
-              Attack Distribution Over Time
-            </h3>
-            <div className="h-64 flex items-center justify-center border border-dashed border-border rounded-lg">
-              <p className="text-muted-foreground">
-                Interactive chart visualization (Timeline & Pie Chart)
-              </p>
-            </div>
-          </Card>
         </div>
       </div>
     </section>

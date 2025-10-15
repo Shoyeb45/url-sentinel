@@ -35,7 +35,7 @@ const techCategories = [
 
 const TechStack = () => {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-20 bg-slate-950/80">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
@@ -50,7 +50,7 @@ const TechStack = () => {
           {techCategories.map((category, index) => (
             <Card
               key={index}
-              className="p-6 bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300"
+              className="p-6 bg-card/30 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300"
             >
               <div className={`inline-flex p-3 rounded-lg ${category.bgColor} mb-4`}>
                 <category.icon className={`w-6 h-6 ${category.color}`} />
@@ -75,17 +75,18 @@ const TechStack = () => {
 
         {/* Accuracy Stats */}
         <div className="mt-12 max-w-4xl mx-auto">
-          <Card className="p-8 bg-gradient-cyber border border-border">
+          <Card className="p-8 bg-gradient-to-r from-slate-950 to-indigo-900 border border-border shadow-xl rounded-2xl">
             <div className="text-center">
-              <h3 className="text-2xl font-bold mb-4 text-foreground">
+              <h3 className="text-2xl font-bold mb-4 text-indigo-300">
                 Machine Learning Accuracy
               </h3>
               <div className="flex justify-center items-baseline gap-2 mb-4">
-                <span className="text-5xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+                <span className="text-5xl font-extrabold bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   97-99%
                 </span>
               </div>
-              <p className="text-muted-foreground">
+
+              <p className="text-slate-400">
                 Achieved across multiple attack vectors using ensemble ML models
               </p>
             </div>

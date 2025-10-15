@@ -23,7 +23,7 @@ const Header = () => {
           </div>
           <div>
             <h1 className="text-xl font-bold text-foreground">CyberShield</h1>
-            <p className="text-xs text-muted-foreground">Security Log Analysis</p>
+            <p className="text-xs text-muted-foreground">Smart Attack Detection</p>
           </div>
         </div>
 
