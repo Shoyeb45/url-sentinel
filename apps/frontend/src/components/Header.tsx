@@ -9,8 +9,6 @@ const Header = () => {
   const navItems = [
     { name: "Dashboard", path: "/dashboard" },
     { name: "Analysis", path: "/analysis" },
-    { name: "Reports", path: "/reports" },
-    { name: "Settings", path: "/settings" },
   ];
 
   const isActive = (path: string) => location.pathname === path;

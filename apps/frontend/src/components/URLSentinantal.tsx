@@ -152,7 +152,7 @@ const URLSentinelDashboard = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-slate-950 text-white p-6 rounded-md">
+      <div className="min-h-screen bg-slate-950 text-white rounded-md">
         <div className="max-w-[1600px] mx-auto space-y-6">
           <div className="flex items-center justify-between">
             <div>
@@ -184,8 +184,8 @@ const URLSentinelDashboard = () => {
             </Alert>
           )}
 
-          <Card>
-            <CardContent className="pt-6">
+          <Card className='bg-slate-800/50 backdrop-blur border-slate-700/50'>
+            <CardContent className="pt-6 ">
               <div className="flex items-center gap-3">
                 <div className="flex-1 relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -232,7 +232,7 @@ const URLSentinelDashboard = () => {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className='bg-slate-800/50 backdrop-blur border-slate-700/50'>
             <CardHeader className="border-b border-slate-800">
               <div className="flex items-center justify-between">
                 <div>
