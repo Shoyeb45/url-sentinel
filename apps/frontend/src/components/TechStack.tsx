@@ -50,7 +50,7 @@ const TechStack = () => {
           {techCategories.map((category, index) => (
             <Card
               key={index}
-              className="p-6 bg-card/50 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300"
+              className="p-6 bg-card/30 backdrop-blur-sm border border-border hover:border-primary/50 transition-all duration-300"
             >
               <div className={`inline-flex p-3 rounded-lg ${category.bgColor} mb-4`}>
                 <category.icon className={`w-6 h-6 ${category.color}`} />

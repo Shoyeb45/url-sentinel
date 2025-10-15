@@ -17,7 +17,7 @@ const Hero = () => {
       <div className="container relative z-10 mx-auto px-4 py-20">
         <div className="text-center max-w-4xl mx-auto">
           {/* Logo/Badge */}
-          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-card/50 backdrop-blur-sm border border-border rounded-full">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-card/30 backdrop-blur-sm border border-border rounded-full">
             <Shield className="w-5 h-5 text-primary" />
             <span className="text-sm font-medium text-foreground">Smart India Hackathon 2025</span>
           </div>
@@ -57,17 +57,17 @@ const Hero = () => {
 
           {/* Feature Icons */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300">
+            <div className="bg-card/30 backdrop-blur-sm border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300">
               <FileSearch className="w-8 h-8 text-primary mb-3 mx-auto" />
               <h3 className="font-semibold text-foreground mb-2">Automated Analysis</h3>
               <p className="text-sm text-muted-foreground">Processes logs automatically and extracts key patterns</p>
             </div>
-            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300">
+            <div className="bg-card/30 backdrop-blur-sm border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300">
               <Shield className="w-8 h-8 text-success mb-3 mx-auto" />
               <h3 className="font-semibold text-foreground mb-2">Real-Time Detection</h3>
               <p className="text-sm text-muted-foreground">Instant threat identification with 97-99% accuracy</p>
             </div>
-            <div className="bg-card/50 backdrop-blur-sm border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300">
+            <div className="bg-card/30 backdrop-blur-sm border border-border rounded-lg p-6 hover:border-primary/50 transition-all duration-300">
               <BarChart3 className="w-8 h-8 text-accent mb-3 mx-auto" />
               <h3 className="font-semibold text-foreground mb-2">Visual Analytics</h3>
               <p className="text-sm text-muted-foreground">Interactive dashboards with exportable reports</p>

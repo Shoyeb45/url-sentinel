@@ -81,7 +81,7 @@ const Index = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Threat Activity Timeline */}
-          <Card className="bg-card/50 backdrop-blur border-white/10">
+          <Card className="bg-card/30 backdrop-blur border-white/10">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-foreground">
                 <TrendingUp className="h-5 w-5 text-primary" />

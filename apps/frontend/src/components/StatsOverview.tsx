@@ -57,7 +57,7 @@ const StatsOverview = () => {
           {stats.map((stat, index) => (
             <Card
               key={index}
-              className={`p-6 border-2 ${stat.borderColor} bg-card/50 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-lg`}
+              className={`p-6 border-2 ${stat.borderColor} bg-card/30 backdrop-blur-sm hover:scale-105 transition-all duration-300 hover:shadow-lg`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className={`p-3 rounded-lg ${stat.bgColor}`}>

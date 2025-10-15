@@ -49,7 +49,7 @@ const AttackTypes = () => {
           {attackTypes.map((attack, index) => (
             <Card
               key={index}
-              className="p-6 bg-card/70 backdrop-blur-md border border-border hover:border-primary/50 transition-all duration-300 group"
+              className="p-6 bg-card/30 backdrop-blur-md border border-border hover:border-primary/50 transition-all duration-300 group"
             >
               <div className="flex flex-col items-center text-center">
                 <div className="p-4 bg-muted/50 rounded-full mb-4 group-hover:scale-110 transition-transform duration-300">
