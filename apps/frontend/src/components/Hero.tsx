@@ -6,7 +6,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative flex items-center justify-center overflow-hidden bg-slate-950">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-cyber opacity-30" />
       <div className="absolute inset-0">
@@ -23,30 +23,31 @@ const Hero = () => {
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent ">
             CyberShield
           </h1>
+
           <p className="text-2xl md:text-3xl font-semibold text-foreground mb-4">
             Smart Attack Detection System
           </p>
           <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-            AI-powered system that detects and classifies cyber-attacks such as SQL Injection, XSS, 
+            AI-powered system that detects and classifies cyber-attacks such as SQL Injection, XSS,
             Directory Traversal, and Web-Shell Upload directly from HTTP logs.
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button 
-              size="lg" 
-              className="bg-gradient-primary hover:shadow-glow-blue transition-all duration-300 text-lg px-8"
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-blue-800 to-indigo-700  hover:bg-inherit transition-all duration-300 text-lg px-8 text-white"
             >
               <Upload className="w-5 h-5 mr-2" />
               Upload Logs
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-primary text-primary hover:bg-primary/10 text-lg px-8"
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary text-lg px-8"
               onClick={() => navigate('/login')}
             >
               <BarChart3 className="w-5 h-5 mr-2" />
