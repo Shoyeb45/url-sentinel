@@ -54,12 +54,8 @@ const Header = () => {
               Upload New File
             </Button>
           </Link>
-          <Button variant="ghost" size="icon" className="relative">
-            <Bell className="h-5 w-5" />
-            <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-primary"></span>
-          </Button>
           <Avatar className="h-8 w-8">
-            <AvatarFallback className="bg-primary/20 text-primary">U</AvatarFallback>
+            <AvatarFallback className="bg-primary/20 text-primary">A</AvatarFallback>
           </Avatar>
         </div>
       </div>

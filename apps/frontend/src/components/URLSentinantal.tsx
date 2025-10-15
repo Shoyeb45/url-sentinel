@@ -299,7 +299,7 @@ const URLSentinelDashboard = () => {
                             hover:bg-slate-800/50 transition-all duration-150
                           `}
                         >
-                          <td className="p-1">
+                          <td className="p-4">
                             {!log.logAnalysis && (
                               <Checkbox
                                 checked={selectedLogs.includes(log.id)}
