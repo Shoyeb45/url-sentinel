@@ -95,11 +95,6 @@ const Login = () => {
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? "Signing in..." : "Sign In"}
             </Button>
-            <div className="text-center">
-              <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                Forgot your password?
-              </a>
-            </div>
           </form>
         </CardContent>
       </Card>
