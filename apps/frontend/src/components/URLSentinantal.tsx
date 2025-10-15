@@ -18,7 +18,7 @@ const URLSentinelDashboard = () => {
   const [filterThreat, setFilterThreat] = useState('all');
   const [filterMethod, setFilterMethod] = useState('all');
 
-  const API_BASE = 'http://localhost:8000/api/v1';
+  const API_BASE = import.meta.env.VITE_API_BASE;
 
   const fetchLogs = async () => {
     setLoading(true);

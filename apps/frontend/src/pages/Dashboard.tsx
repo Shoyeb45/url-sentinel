@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from "recharts";
 import { Shield, Activity, AlertTriangle, CheckCircle, Clock } from "lucide-react";
 import Header from "../components/Header";
+import { toast } from "sonner";
 
 const Dashboard = () => {
   const [analyzeStats, setAnalyzeStats] = useState({
@@ -20,7 +21,7 @@ const Dashboard = () => {
   });
 
   const [loading, setLoading] = useState(true);
-  const API_BASE = 'http://localhost:8000/api/v1';
+  const API_BASE = import.meta.env.VITE_API_BASE;
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,8 +44,9 @@ const Dashboard = () => {
             setLogStats(logData.data);
           }
         }
-      } catch (error) {
-        console.error('Error fetching stats:', error);
+        toast.success("Dashboard data Loaded");
+      } catch (error:any) {
+        toast.error(error.response.data.message || "Failed to fetch dashboard data");
       } finally {
         setLoading(false);
       }
