@@ -68,7 +68,7 @@ const Index = () => {
       <StatsOverview />
 
       {/* Dashboard Charts Section */}
-      <section className="container px-6 py-16 bg-slate-950/80">
+      <section className=" px-20 py-16 bg-slate-950/80">
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Real-Time Threat Intelligence
