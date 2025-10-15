@@ -1,7 +1,10 @@
 import { Shield, Upload, BarChart3, FileSearch } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
       {/* Animated Background */}
@@ -44,6 +47,7 @@ const Hero = () => {
               size="lg" 
               variant="outline" 
               className="border-primary text-primary hover:bg-primary/10 text-lg px-8"
+              onClick={() => navigate('/login')}
             >
               <BarChart3 className="w-5 h-5 mr-2" />
               View Dashboard
